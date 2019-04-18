@@ -28,37 +28,6 @@
     position: relative;
     margin: auto 0;
 }
-/* .header p{
-    margin: 18px 0;
-} */
-/* .input-group {
-    position: absolute;
-    left:18%;
-    width: 80% !important;
-    max-width: 400px;
-    border-radius: 30px;
-    background: #fff;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    
-}
-
-.form-control {
-    border: 0 !important;
-    border-radius: 30px !important;
-    margin: 2px;
-    box-shadow: none !important;
-}
-.input-group-text {
-    width: 100px;
-    background-image: linear-gradient(#73b1db,#1f3d90);
-    border: 0 !important;
-    color: #fff !important;
-    padding: 0 25px;
-    border-radius: 30px !important;
-    box-shadow: none !important;
-   
-} */
 
 /* nav */
 .mainNav {
