@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-site-v1';
+const CACHE_NAME = 'pwa-site-v3';
 const CACHE_URLS = ['index.html',
 'manifest.json',
 //'normalize.css',
@@ -64,8 +64,8 @@ self.addEventListener('activate', function(event) {
     // -> If we have a match for the resource in our cache, respond with it!
     // -> Otherwise, return an "outside" fetch request for it (try to go to the network to get it)
 
-    event.respondWith(
-        caches.match(event.request).then(function(response){
+    event.respondWith(caches.match(event.request)
+    .then(function(response){
 
             // Did we find a match for this request in our caches?
             if(response){
@@ -75,7 +75,7 @@ self.addEventListener('activate', function(event) {
             }
 
             // No, so return an outside fetch request for it (go to network)
-                console.log('Sorry, ${event.request.url} not found in cache');
+                // console.log('Sorry, ${event.request.url} not found in cache');
             return fetch(event.request);
         })
     );
