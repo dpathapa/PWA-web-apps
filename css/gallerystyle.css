@@ -6,7 +6,7 @@
 }
 .header{
     height: 50%;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/image/tilicho.jpg);
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/image/Everest-Skydive.jpeg);
     background-size:cover;
     background-position:center;
     background-attachment: fixed;
@@ -54,7 +54,6 @@
     top:0;
     z-index: 2;
  }
-    
     .mainNav ul {
     list-style-type:none;
     padding:0;
@@ -127,15 +126,39 @@
     text-align: justify;
     padding: 10px;
     margin-bottom: 5px;
+    min-width:250px;
 }
 .content-section img {
     margin-top:5px;
     padding: 10px;
+    width:100%;
 }
 
-
 .user-feedback{
-    padding: 100px 0;
+    padding: 80px 0;   
+}
+h3{
+    margin-top: 0px;
+}
+.card{
+    margin: auto;
+    min-width:250px;
+}
+.card-img-top{
+    padding:10px;
+    padding-bottom: 0px;
+    width: 100%;
+    }
+.card-title span{
+   font-style:oblique;
+}
+.card span {
+    text-align: right;
+    margin-right: 20px;
+}
+.card-content{
+    margin: 10px;
+    text-align: left;
 }
 .user-review{
     text-align: center;
@@ -208,8 +231,136 @@ h1{
     text-align: center;
 }
 .contact{
-    height:300px;
-    background-color: #efefef;
     padding:10px;
     margin: 10px;
+}
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin: 10px;
+  }
+  
+  /* Style the label to display next to the inputs */
+  label {
+    padding: 8px 8px 8px 0;
+    display: inline-block;
+  }
+  
+  /* Style the submit button */
+  input[type=submit] {
+    background-image: linear-gradient(#73b1db,#1f3d90);
+    color: white;
+    padding: 10px 20px;
+    margin: auto;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Style the container */
+  .reviews {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    min-width: 250px;
+    margin: auto;
+  }
+  
+  /* Floating column for labels: 25% width
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  /* .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+    
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  /* @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  } */
+  .reviews .input1 {
+      border:none;
+      border-left: 1px solid orange;
+      background-color: #efefef;
+      width: 40%;
+      padding: 10px;
+      border-radius: 0;
+      margin: auto; 
+      margin-bottom: 20px;
+  }
+ 
+
+  /* caregories */
+  /*categories*/
+.categories {
+    padding:100px 0;
+}
+.categories h1{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.category-img img{
+    width: 100%;
+    height: 200px;
+}
+.location {
+    float: right;
+    color: black;
+    font-weight: 600;
+    padding:10px;
+    margin-bottom: -1px;
+    /* box-shadow: 0 0 10px 1px rgba(37,73,21,0.18); */
+}
+.category-img {
+    position:relative /* with .rating*/
+}
+.ratings {
+    padding: 3px;
+    float: right;
+    background: #fff;
+    bottom: -1px;
+    right:0;
+    position: absolute;
+}
+.categories .fa{
+    font-size: 15px;
+    color:orangered;
+}
+.category-details{
+    text-align: justify;
+    padding: 20px;
+    height: 200px;
+}
+.category-details h4 {
+    font-weight: 600;
+    margin-top: 20px;
+}
+.category-details .fa {
+    margin-right: 5px;
+}
+.category-box {
+    box-shadow: 0 0 10px 1px rgba(37,73,21,0.18);
+    margin-bottom: 30px;
+   
 }

@@ -16,7 +16,7 @@
     color: white;
 }
 .header img {
-    width: 300px;
+    max-width: 300px;
     float:left;
 }
 
@@ -69,7 +69,7 @@
 
 @media only screen and (min-width : 350px) {   
     .mainNav li {
-        font-size: 12px;
+        font-size: 1em;
     }    
     
     .mainNav a {
