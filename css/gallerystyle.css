@@ -1,26 +1,56 @@
-
-*{
-    padding:0;
-    margin:0;
-    max-width: width 250px;
+/*font face declarations*/
+@font-face {
+    font-family: 'Roboto';
+    src: url('appimages/Roboto-Regular.eot');
+    src: url('appimages/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('appimages/Roboto-Regular.woff2') format('woff2'),
+        url('appimages/Roboto-Regular.woff') format('woff'),
+        url('appimages/Roboto-Regular.ttf') format('truetype'),
+        url('appimages/Roboto-Regular.svg#Roboto-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
 }
+@font-face {
+    font-family: 'Raleway';
+    src: url('appimages/Raleway-Regular.eot');
+    src: url('appimages/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
+        url('appimages/Raleway-Regular.woff2') format('woff2'),
+        url('appimages/Raleway-Regular.woff') format('woff'),
+        url('appimages/Raleway-Regular.ttf') format('truetype'),
+        url('appimages/Raleway-Regular.svg#Raleway-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+* {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    padding:0;
+    margin:0;   
+}
+
+/* header */
 .header{
     height: 50%;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/image/Everest-Skydive.jpeg);
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(/image/playerflag.jpg);
     background-size:cover;
-    background-position:center;
+    background-position: center;
     background-attachment: fixed;
     padding-top:20px;
-    margin: 5px;
-    margin-bottom: 20px;
+    margin: 15px 0;
     text-align: center;
-    color: white;
+    color: white;   
 }
-.header img {
-    width: 200px;
-    float:left;
-    }
 
+/* logo */
+.header img {
+    padding-top:0;
+    width: 210px;
+    float:left;
+}
+
+/* search bar */
 .input-group {
         position: absolute;
         left:18%;
@@ -54,36 +84,35 @@
     top:0;
     z-index: 2;
  }
-    .mainNav ul {
+.mainNav ul {
     list-style-type:none;
     padding:0;
     margin:0;
     display:flex;
     flex-flow: row wrap;     
-    }
+}
     
-    .mainNav li {
+.mainNav li {
     flex-grow:1;   
     padding:0.4em 0;
     width:calc(25% - 2em);        
-    }
+}
     
-    .mainNav a {
+.mainNav a {
     background-size:45px 45px;
     background-repeat:no-repeat;
     background-position:center;
     min-height:45px;
-    color:white;
-     
-    }
-    .mainNav a:hover{
+    color:white;     
+}
+
+.mainNav a:hover{
     text-decoration:none;
     display:block;
     color:white;
     height:100%;
-    width:100%;    
-
-    }
+    width:100%;
+}
 
 @media only screen and (min-width : 350px) {   
         .mainNav a {
@@ -109,8 +138,8 @@
     }
         
  } 
-.adventures{
-   
+ /* adventure */
+.adventures{   
     margin: 20px;  
 }
 .adventures img{
@@ -271,19 +300,6 @@ input[type=text], select, textarea{
     margin: auto;
   }
   
-  /* Floating column for labels: 25% width
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  /* Floating column for inputs: 75% width */
-  /* .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
     
   /* Clear floats after the columns */
   .row:after {
@@ -309,12 +325,10 @@ input[type=text], select, textarea{
       margin: auto; 
       margin-bottom: 20px;
   }
- 
-
-  /* caregories */
+  
   /*categories*/
 .categories {
-    padding:100px 0;
+    padding:10px 0;
 }
 .categories h1{
     text-align: center;
@@ -364,3 +378,27 @@ input[type=text], select, textarea{
     margin-bottom: 30px;
    
 }
+
+/* shared-moments */
+#create-post {
+    z-index: 1001;
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
+    bottom: 0;
+    top: 56px;
+    background: white;
+    text-align: center;
+    display: none;
+  }
+  
+  .main-image {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+  }
+  .shared-moment-card.mdl-card {
+    margin: 10px auto;
+  }
+ 

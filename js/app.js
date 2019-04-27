@@ -1,5 +1,10 @@
 
 let defferedPrompt;
+
+if(!window.Promise ){
+  window.Promise = Promise;
+}
+
 // Check that this browser supports serviceWorker
 if('serviceWorker' in navigator){
   window.addEventListener('load', function(){
@@ -14,7 +19,7 @@ if('serviceWorker' in navigator){
   });
 }
  window.addEventListener('beforeinstallprompt',function(event){
-     console.log('beforeinstallprompt fired');
+    //  console.log('beforeinstallprompt fired');
      event.preventDefault();
      defferedPrompt = event;
      return false;

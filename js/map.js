@@ -21,7 +21,7 @@ if(myMap) {
         script.setAttribute('defer', true);
         document.body.appendChild(script);
     } else {
-        document.getElementById('myMap').classList.add('offline-map');
+        document.getElementById('myMap').classList.add('offline');
     }
 
 }
