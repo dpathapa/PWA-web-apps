@@ -24,17 +24,14 @@ if('serviceWorker' in navigator){
      defferedPrompt = event;
      return false;
 });
-// //promise
-// var promise = new promise(function(resolve,reject) {
-//     setTimeout(function() {
-//         //resolve('This is executed once the timer is done!');
-//         reject({code: 500, message:'An erorr occured'})
-//         //console.log('This is executed once the timer is done');
-//     },3000);
-//  });
-//  promise.then(function(text){
-//      return text;
-//  }).then (function(newText){
-//      console.log(newText);
-//  });
-//  console.log('This is executed after setTimeout()' );
+
+
+// // unregister sw
+// if('serviceWorker' in navigator){
+//   navigator.ServiceWorker.getRegistrations()
+//   .then(function(registrations){
+//     for (var i = 0; i < registrations.length; i++){
+//       registrations[i].unregister();
+//     }
+//   })
+// }
