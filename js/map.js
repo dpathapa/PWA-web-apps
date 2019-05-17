@@ -20,16 +20,18 @@ if(myMap) {
         script.setAttribute('async', true);
         script.setAttribute('defer', true);
         document.body.appendChild(script);
+        
     } else {
         document.getElementById('myMap').classList.add('offline');
     }
 
 }
+
 function loadMapScenario() {
     if (!navigator.geolocation) {
-        console.log('Geolocation is not supported by your browser');
+        // console.log('Geolocation is not supported by your browser');
         } else {
-        console.log('Locating…');
+        // console.log('Locating…');
         navigator.geolocation.getCurrentPosition(success, error);
         }
 }
@@ -47,7 +49,7 @@ function success(position) {
     }
 
 function error() {
-    console.log('Unable to retrieve your location');
+    // console.log('Unable to retrieve your location');
     document.getElementById('myMap').innerHTML = "<p>Can't locate you</p>"
     }
 

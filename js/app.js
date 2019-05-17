@@ -25,13 +25,3 @@ if('serviceWorker' in navigator){
      return false;
 });
 
-
-// // unregister sw
-// if('serviceWorker' in navigator){
-//   navigator.ServiceWorker.getRegistrations()
-//   .then(function(registrations){
-//     for (var i = 0; i < registrations.length; i++){
-//       registrations[i].unregister();
-//     }
-//   })
-// }

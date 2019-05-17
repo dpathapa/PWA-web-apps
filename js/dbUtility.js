@@ -1,4 +1,4 @@
-let dbPromise = idb.open('shared-reviews', 1, function(db){
+let dbPromise =idb.open('shared-reviews', 1, function(db){
     if(!db.objectStoreNames.contains('reviews')){
         db.createObjectStore('reviews', {keyPath: 'id'});
     }
