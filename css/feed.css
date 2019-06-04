@@ -1,3 +1,11 @@
+.text-center {
+  text-align: center;
+}
+
+.drawer-option {
+  padding: 16px;
+}
+
 #create-post {
     z-index: 1001;
     position: fixed;
@@ -8,12 +16,12 @@
     top: 56px;
     background: white;
     text-align: center;
-    /*display: none;*/
+    /* display: none; */
     transform: translateY(100vh);
     transition: transform 0.3s;
   }
   
-  #create-post video, #create-post canvas {
+ #create-post video, #create-post canvas {
     width: 512px;
     max-width: 100%;
     display: none;
@@ -30,19 +38,20 @@
   
   .mdl-spinner {
     margin: auto;
-  }
+  } 
   
   .main-image {
-    max-width: 100%;
-    margin: auto;
+      /* max-width: 100%; */
+      height: 80%;
+      margin: auto;
     display: block;
   }
   
   .floating-button {
     z-index: 1000;
-    /* position: fixed;
+    position: fixed;
     bottom: 0;
-    right: 0; */
+    right: 0;
     padding: 40px;
 
   }
@@ -54,10 +63,10 @@
   
   
   .shared-moment-card.mdl-card {
+    display: block;
     margin: 10px auto;
-    /*width: 270px;*/
     width: 80%;
-  }
+    }
   
   @media (min-width: 600px) {
     .shared-moment-card.mdl-card {
@@ -72,17 +81,17 @@
   }
   
   .shared-moment-card .mdl-card__title {
-    height: 140px;
+    height: 180px;
   }
   
   @media (min-height: 700px) {
     .shared-moment-card .mdl-card__title {
-      height: 160px;
+      height: 200px;
     }
   }
   
   @media (min-height: 1000px) {
     .shared-moment-card .mdl-card__title {
-      height: 200px;
+      height: 220px;
     }
   }

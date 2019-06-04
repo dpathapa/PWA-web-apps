@@ -1,15 +1,16 @@
 importScripts('js/idb.js');
 importScripts('js/dbUtility.js');
 
-
-let CACHE_NAME = 'pwa-site-v16';
-let CACHE_DYNAMIC_NAME = 'dynamic-v2';
+let CACHE_NAME = 'pwa-site-v24';
+let CACHE_DYNAMIC_NAME = 'dynamic-v3';
 let CACHE_URLS = [
+'/',
 'index.html',
 'manifest.json',
 'misc.html',
 'share_exp.html',
 'adventure.html',
+'feed.html',
 'css/style.css',
 'css/gallerystyle.css',
 'offline.html',
@@ -23,6 +24,9 @@ let CACHE_URLS = [
 'battery.js',
 'device.js',
 'ambient.js',
+'image/reflection-300',
+'image/reflection-500',
+'image/reflection-700',
 'image/mane.jpg',
 'image/mane200x200.jpg',
 'image/mane400x400.jpg',
@@ -82,15 +86,25 @@ self.addEventListener('activate', function(event) {
     return self.clients.claim();
   });
 
-  function isInArray(string,array){
-      for(let i=0;i<array.length; i++){
-          if(array[i] === string){
-              return true;
-          }
-      }
-      return false;
+  // function isInArray(string,array){
+  //     for(let i=0;i<array.length; i++){
+  //         if(array[i] === string){
+  //             return true;
+  //         }
+  //     }
+  //     return false;
+  // }
+
+  function isInArray(string, array) {
+    var cachePath;
+    if (string.indexOf(self.origin) === 0) { // request targets domain where we serve the page from (i.e. NOT a CDN)
+      console.log('matched ', string);
+      cachePath = string.substring(self.origin.length); // take the part of the URL AFTER the domain (e.g. after localhost:8080)
+    } else {
+      cachePath = string; // store the full request (for CDNs)
+    }
+    return array.indexOf(cachePath) > -1;
   }
-//
 
 //Fetching items from the cache
   self.addEventListener('fetch', function(event){  
@@ -133,7 +147,7 @@ self.addEventListener('activate', function(event) {
             .catch(function(err){
                 return caches.open(CACHE_NAME)
                 .then(function (cache){
-                 if (event.request.headers.get('accept').includes('.html')){
+                 if (event.request.headers.get('accept').includes('text/html')){
                 return cache.match('offline.html');
                  }
                 });
@@ -161,26 +175,35 @@ self.addEventListener('sync', function(event) {
   if (event.tag === 'sync-new-reviews') {
     console.log('[Service Worker] Syncing new Posts');
     event.waitUntil(
-      readAllData('sync-posts')
+      readAllData('sync-reviews')
         .then(function(data) {
           for (var dt of data) {
-            var postData = new FormData();
-            postData.append('id', dt.id);
-            postData.append('title', dt.title);
-            postData.append('location', dt.location);
-            postData.append('file', dt.picture, dt.id + '.png');
+            // var postData = new FormData();
+            // postData.append('id', dt.id);
+            // postData.append('title', dt.title);
+            // postData.append('location', dt.location);
+            // postData.append('file', dt.picture, dt.id + '.png');
 
             fetch('https://portfolio-deepa.firebaseio.com/reviews.json', {
               method: 'POST',
-              body: postData
-            })
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                id: dt.id,
+                title: dt.title,
+                location: dt.location,
+                image: 'https://firebasestorage.googleapis.com/v0/b/portfolio-deepa.appspot.com/o/Bungy.jpeg?alt=media&token=3f61b7aa-14ca-4ad3-9f1b-0c37469c7cea'
+                })
+              })
               .then(function(res) {
                 console.log('Sent data', res);
                 if (res.ok) {
-                  res.json()
-                    .then(function(resData) {
+                  // res.json()
+                  //   .then(function(resData) {
                       deleteItemFromData('sync-reviews', resData.id);
-                    });
+                    // });
                 }
               })
               .catch(function(err) {
@@ -198,7 +221,7 @@ self.addEventListener('sync', function(event){
   if(event.tag === 'sync-new-review'){
     console.log('[Service Worker] syncing new reviews', event);
     event.waitUntil(
-      readAllData('sync-review')
+      readAllData('sync-reviews')
       .then(function(data){
         for (let dt of data){
           fetch(' https://portfolio-deepa.firebaseapp.com',{
@@ -217,16 +240,16 @@ self.addEventListener('sync', function(event){
             .then(function(res){
               console.log('Sent data', res);
               if(res.ok){
-                deleteItemFromData('sync-review', dt.id);
+                deleteItemFromData('sync-reviews', dt.id);
               }      
           })
           .catch(function(err){
-            console.log('Error while sending data'.err);
+            console.log('Error while sending data', err);
           })
         }
         
       })
     );
   }
-})
+});
 

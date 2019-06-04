@@ -2,6 +2,9 @@ let dbPromise =idb.open('shared-reviews', 1, function(db){
     if(!db.objectStoreNames.contains('reviews')){
         db.createObjectStore('reviews', {keyPath: 'id'});
     }
+    if(!db.objectStoreNames.contains('sync-reviews')){
+        db.createObjectStore('sync-reviews', {keyPath: 'id'});
+    }
 });
 
 function writeData(st, data){
@@ -42,3 +45,14 @@ function deleteItemFromData(st, id){
         console.log('Item deleted!');
     })
 }
+function dataURItoBlob(dataURI) {
+    let byteString = atob(dataURI.split(',')[1]);
+    let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+    let ab = new ArrayBuffer(byteString.length);
+    let ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    let blob = new Blob([ab], {type: mimeString});
+    return blob;
+  }
